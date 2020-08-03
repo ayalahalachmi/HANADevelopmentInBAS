@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="FlightReservation" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="FlightReservation"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="PASSENGERS">
+    <resourceUri>PASSENGERS</resourceUri>
+  </DataSource>
+  <DataSource id="FLIGHTRESERVATION">
+    <resourceUri>FLIGHTRESERVATION</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Reservations" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="PASSENGERID"/>
+      <viewAttribute id="NAME"/>
+      <viewAttribute id="ACTIVE"/>
+      <viewAttribute id="ADDRESS"/>
+      <viewAttribute id="COUNTRY"/>
+      <viewAttribute id="PASSPORT"/>
+      <viewAttribute id="PASSENGERPRIORITYSTATUS"/>
+      <viewAttribute id="RESERVATIONID"/>
+      <viewAttribute id="MANDT"/>
+      <viewAttribute id="CARRID"/>
+      <viewAttribute id="CONNID"/>
+      <viewAttribute id="FLDATE"/>
+      <viewAttribute id="SEAT"/>
+      <viewAttribute id="BOOKINGTIME"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="PASSENGERS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="PASSENGERID" source="PASSENGERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NAME" source="NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ACTIVE" source="ACTIVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADDRESS" source="ADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY" source="COUNTRY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PASSPORT" source="PASSPORT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PASSENGERPRIORITYSTATUS" source="PASSENGERPRIORITYSTATUS"/>
+    </input>
+    <input node="FLIGHTRESERVATION">
+      <mapping xsi:type="Calculation:AttributeMapping" target="RESERVATIONID" source="RESERVATIONID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEAT" source="SEAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BOOKINGTIME" source="BOOKINGTIME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PASSENGERID" source="RESERVATIONID"/>
+    </input>
+    <joinAttribute name="PASSENGERID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Reservations">
+  <attributes>
+    <attribute id="PASSENGERID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PASSENGERID"/>
+      <keyMapping columnObjectName="Reservations" columnName="PASSENGERID"/>
+    </attribute>
+    <attribute id="NAME" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NAME"/>
+      <keyMapping columnObjectName="Reservations" columnName="NAME"/>
+    </attribute>
+    <attribute id="ACTIVE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ACTIVE"/>
+      <keyMapping columnObjectName="Reservations" columnName="ACTIVE"/>
+    </attribute>
+    <attribute id="ADDRESS" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ADDRESS"/>
+      <keyMapping columnObjectName="Reservations" columnName="ADDRESS"/>
+    </attribute>
+    <attribute id="COUNTRY" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY"/>
+      <keyMapping columnObjectName="Reservations" columnName="COUNTRY"/>
+    </attribute>
+    <attribute id="PASSPORT" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PASSPORT"/>
+      <keyMapping columnObjectName="Reservations" columnName="PASSPORT"/>
+    </attribute>
+    <attribute id="PASSENGERPRIORITYSTATUS" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PASSENGERPRIORITYSTATUS"/>
+      <keyMapping columnObjectName="Reservations" columnName="PASSENGERPRIORITYSTATUS"/>
+    </attribute>
+    <attribute id="RESERVATIONID" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RESERVATIONID"/>
+      <keyMapping columnObjectName="Reservations" columnName="RESERVATIONID"/>
+    </attribute>
+    <attribute id="MANDT" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MANDT"/>
+      <keyMapping columnObjectName="Reservations" columnName="MANDT"/>
+    </attribute>
+    <attribute id="CARRID" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CARRID"/>
+      <keyMapping columnObjectName="Reservations" columnName="CARRID"/>
+    </attribute>
+    <attribute id="CONNID" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONNID"/>
+      <keyMapping columnObjectName="Reservations" columnName="CONNID"/>
+    </attribute>
+    <attribute id="FLDATE" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FLDATE"/>
+      <keyMapping columnObjectName="Reservations" columnName="FLDATE"/>
+    </attribute>
+    <attribute id="SEAT" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEAT"/>
+      <keyMapping columnObjectName="Reservations" columnName="SEAT"/>
+    </attribute>
+    <attribute id="BOOKINGTIME" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BOOKINGTIME"/>
+      <keyMapping columnObjectName="Reservations" columnName="BOOKINGTIME"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Reservations" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="81" y="189"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="PASSENGERS" modelObjectNameSpace="Reservations" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="247.3583984375"/>
+    </shape>
+    <shape modelObjectName="FLIGHTRESERVATION" modelObjectNameSpace="Reservations" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="192.00390625"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario> 
